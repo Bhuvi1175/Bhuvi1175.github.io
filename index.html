@@ -1,0 +1,271 @@
+<!--
+Name : BHUVANESHWAR BAGDE 
+REG. NO: ME20TET007
+DEPARTMENT : Electronics And Telecommunication
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvaneshwar Bagde(Validation form)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Start -->  
+<style>
+body {
+    background-image: url("image.jpg");
+    background: linear-gradient(to right,#74ebcd,#dee69f  );
+    font-family: 'Mulish', sans-serif;
+     
+    background-size: 100%;
+    background-repeat:no-repeat;
+    font-family:var(Mulish);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+     
+    width: 100vw;
+
+}
+
+#form {
+    width: 100%;
+    margin: 13vh;
+    padding: 40px;
+    background-color:#f0f0f0;
+    border-radius: 8px;
+    width:calc(100vw - 65vw);
+    font-size: 18px;
+    
+}
+ 
+#form h1 {
+    color:black;
+    background:linear-gradient(to left,rgba(116,235,213,0.6),rgba(159,172,230,0.6));
+     
+    padding: 20px;
+    font-family:var(Mulish);
+    font-size:18px;
+    font-style:unset;
+    font-weight:bold;
+    text-transform: uppercase;
+    text-align:center;
+    
+}
+
+#form button {
+    background: var(to left,#74ebcd,#dee69f);
+    border-radius:6px;
+    border: none;
+    outline: none;
+    color:darkslategray;
+    display: block;
+    font-family:var(Mulish);
+    font-size: 16px;
+    padding: 15px 0;
+    margin-top:20px;
+    width:100%;
+    font-weight:bold;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+#form button:hover {
+    background:linear-gradient(to right,#74ebd5,#9face6);
+
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.input-control input {
+    width: 100%;
+    border: 2px solid #056559;
+    border-radius: 5px;
+    display: block;
+    font-family: var(--myfont);
+    font-size: 14px;
+    padding:12px
+     
+}
+
+.input-control input:focus {
+    outline: 0;
+    border-color:#9face6;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 10px;
+    height: 13px;
+}
+#footer {
+            position: fixed;
+            padding: 15px 12px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/
+            height: 40px;
+            background:transparent;
+        }
+</style>
+</head>
+
+<!-- HTML Start-->
+
+<body>
+    <div class="container">
+        <form id="form" action="/">
+            <h1>   CLUB ENTRY REGISTRATION FORM</h1>
+            <div class="input-control">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+             
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+                <label for="city">City</label>
+                <input id="city"name="city" type="text">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="number">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password"name="password" type="password">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password2">Confirm Password</label>
+                <input id="password2"name="password2" type="password">
+                <div class="error"></div>
+            </div>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+<!--JavaScript Start-->
+
+<script>
+    const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const password = document.getElementById('password');
+    const password2 = document.getElementById('password2');
+
+    form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    validateInputs();
+});
+
+    const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+    const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+// for more email validation I refer form google and w3 school.
+    const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+
+    const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const phoneValue = phone.value.trim();
+    const passwordValue = password.value.trim();
+    const password2Value = password2.value.trim();
+
+    if(usernameValue === '') {
+        setError(username, 'Username Cannot be blank');
+    } else {
+        setSuccess(username);
+    }
+
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a correct email address');
+    } else {
+        setSuccess(email);
+    }
+     
+    if(phoneValue === '') {
+        setError(phone, 'Phone Number is required');
+    } else if (phoneValue.length != 10) {
+        setError(phone, 'Invalid phone Number');
+    } else {
+        setSuccess(phone);
+    }
+
+    if(passwordValue === '') {
+        setError(password, 'Password is required');
+    } else if (passwordValue.length < 5 ) {
+        setError(password, 'Password must be at least 5 character.')
+    } else {
+        setSuccess(password);
+    }
+
+    if(password2Value === '') {
+        setError(password2, 'Please confirm your password');
+    } else if (password2Value !== passwordValue) {
+        setError(password2, "Passwords doesn't match");
+    } else {
+        setSuccess(password2);
+    }
+
+};
+
+
+</script>
+<div id="footer"> © Bhuvaneshwar Bagde | Department Electronics and telecommunication || ME20TET007| | Sbjitmr   | | Nagpur    |
+</div>
+ 
+</body>
+</html>
